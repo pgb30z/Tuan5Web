@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feane - Book A Table</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+         :root {
+            --primary-color: #ffc233;
+            --text-color-dark: #333;
+            --text-color-light: #555;
+            --font-serif: 'Dancing Script', cursive;
+            --font-sans: 'Open Sans', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            background-color: #fff;
+            color: var(--text-color-dark);
+        }
+        
+        .navbar {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+            z-index: 10;
+        }
+        
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            color: var(--text-color-dark);
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+            justify-content: center;
+        }
+        
+        .nav-links a {
+            color: var(--text-color-light);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            padding: 20px 0;
+            position: relative;
+            font-weight: 600;
+        }
+        
+        .nav-links a:hover {
+            color: var(--text-color-dark);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+        
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .navbar-actions {
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar-icons i {
+            margin-right: 20px;
+            color: var(--text-color-dark);
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        
+        .navbar button {
+            background-color: var(--primary-color);
+            color: var(--text-color-dark);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .navbar button:hover {
+            background-color: #e0b300;
+        }
+        
+        .book-table-section {
+            padding: 80px 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .book-table-section h2 {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            color: var(--text-color-dark);
+            margin-bottom: 40px;
+            font-weight: 400;
+            text-align: center;
+        }
+        
+        .content-wrapper {
+            display: flex;
+            width: 100%;
+            max-width: 1100px;
+            gap: 50px;
+        }
+        
+        .booking-form-container {
+            flex: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            color: var(--text-color-dark);
+            font-family: var(--font-sans);
+            outline: none;
+            appearance: none;
+        }
+        
+        .form-group input::placeholder {
+            color: #aaa;
+        }
+        
+        .form-group select {
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M287%20196.8c-2%202.1-4.4%203.1-7%203.1h-266.4c-2.6%200-5-1-7-3.1-4-4.1-4-10.7%200-14.8l133.2-133.2c4-4.1%2010.4-4.1%2014.5%200l133.2%20133.2c4.1%204.1%204.1%2010.7-.1%2014.8z%22%2F%3E%3C%2Fsvg%3E');
+            background-repeat: no-repeat;
+            background-position: right 15px top 50%;
+            background-size: 10px auto;
+            padding-right: 40px;
+        }
+        
+        .date-input-container {
+            position: relative;
+        }
+        
+        .date-input-container input[type="date"] {
+            padding-right: 40px;
+        }
+        
+        .date-input-container::after {
+            content: "\f073";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+            pointer-events: none;
+        }
+        
+        .btn-book {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        .btn-book:hover {
+            background-color: #e0b300;
+        }
+        
+        .map-container {
+            flex: 1;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            border: 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <h1 class="logo">Feane</h1>
+        <div class="nav-links">
+            <a href="home.html">HOME</a>
+            <a href="menu.html">MENU</a>
+            <a href="about.html">ABOUT</a>
+            <a href="book.html" class="active">BOOK TABLE</a>
+        </div>
+        <div class="navbar-actions">
+            <div class="navbar-icons">
+                <i class="fas fa-user"></i>
+                <i class="fas fa-shopping-cart"></i>
+                <i class="fas fa-search"></i>
+            </div>
+            <button>Order Online</button>
+        </div>
+    </div>
+
+    <section class="book-table-section">
+        <h2>Book A Table</h2>
+
+        <div class="content-wrapper">
+            <div class="booking-form-container">
+                <form>
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email">
+                    </div>
+                    <div class="form-group">
+                        <select required>
+                            <option value="" disabled selected>How many persons?</option>
+                            <option value="1">1 person</option>
+                            <option value="2">2 persons</option>
+                            <option value="3">3 persons</option>
+                            <option value="4">4 persons</option>
+                            <option value="5+">5+ persons</option>
+                        </select>
+                    </div>
+                    <div class="form-group date-input-container">
+                        <input type="date" placeholder="dd/mm/yyyy" required onfocus="(this.type='date')" onblur="if(!this.value) this.type='text'" style="color: #aaa;">
+                    </div>
+
+                    <button type="submit" class="btn-book">BOOK NOW</button>
+                </form>
+            </div>
+
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.4552467977794!2d-73.99222478459424!3d40.74844037932782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25968b64e9e99%3A0xc397227e774f2601!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1617180000000"
+                    allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
