@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - Feane</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0d0d0d;
+            color: #fff;
+        }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 10;
+        }
+        
+        .navbar h4 {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .navbar nav a {
+            color: #ffffffb3;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .navbar nav a:hover,
+        .navbar nav a.active {
+            color: #f1c40f;
+        }
+        
+        .navbar-icons i {
+            margin-left: 20px;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .navbar button {
+            background-color: #f1c40f;
+            color: black;
+            border: none;
+            padding: 10px 25px;
+            margin-left: 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        /* About Section */
+        
+        .about {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            padding: 100px 60px;
+            margin-top: 80px;
+            background-color: #1c1c1c;
+        }
+        
+        .about img {
+            width: 350px;
+            max-width: 100%;
+        }
+        
+        .about-content {
+            max-width: 500px;
+        }
+        
+        .about-content h2 {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-content p {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        .about-content button {
+            background-color: #f1c40f;
+            color: black;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <h4>Feane</h4>
+        <nav>
+            <a href="home.html">HOME</a>
+            <a href="menu.html">MENU</a>
+            <a href="about.html" class="active">ABOUT</a>
+            <a href="#">BOOK TABLE</a>
+        </nav>
+        <div class="navbar-icons">
+            <i class="fas fa-user"></i>
+            <i class="fas fa-shopping-cart"></i>
+            <i class="fas fa-search"></i>
+            <button>Order Online</button>
+        </div>
+    </div>
+
+    <section class="about">
+        <div class="about-img">
+            <img src="about-img.png" alt="Burger" />
+        </div>
+        <div class="about-content">
+            <h2>We Are Feane</h2>
+            <p>
+                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum,
+                you need to be sure there isn't anything embarrassing hidden in the middle of text.
+            </p>
+            <button>Read More</button>
+        </div>
+    </section>
+</body>
+
+</html>
