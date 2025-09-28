@@ -142,6 +142,181 @@
             background-color: #f1c40f;
             opacity: 1;
         }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #000;
+            color: white;
+        }
+        
+        .hero {
+            height: 100vh;
+            background-image: url('duong_dan_den_anh_burger.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 100px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-content {
+            max-width: 500px;
+            z-index: 1;
+        }
+        
+        .hero-content h1 {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .hero-content p {
+            color: #ddd;
+            margin-bottom: 25px;
+        }
+        
+        .btn-order {
+            background-color: var(--primary-color);
+            color: black;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 20;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding-top: 50px;
+        }
+        
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 40%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            position: relative;
+            color: var(--text-color-dark);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .modal-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--primary-color);
+            font-weight: 400;
+        }
+        /* Nút đóng (X) */
+        
+        .close-btn {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0 5px;
+        }
+        
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #333;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .modal-body label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .modal-body input[type="tel"],
+        .modal-body input[type="email"] {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+            width: 15px;
+            height: 15px;
+            accent-color: var(--primary-color);
+        }
+        
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-weight: 400;
+        }
+        
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+        }
+        
+        .btn-order-modal,
+        .btn-close-modal {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-order-modal {
+            background-color: var(--primary-color);
+            color: var(--text-color-dark);
+        }
+        
+        .btn-order-modal:hover {
+            background-color: #e0b300;
+        }
+        
+        .btn-close-modal {
+            background-color: #e0e0e0;
+            color: var(--text-color-dark);
+        }
+        
+        .btn-close-modal:hover {
+            background-color: #ccc;
+        }
     </style>
 </head>
 
@@ -174,6 +349,59 @@
             <span class="dot"></span>
         </div>
     </section>
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Order</h2>
+                <span class="close-btn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <label for="telephone">Telephone</label>
+                    <input type="tel" id="telephone" name="telephone" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="check-me-out" name="check-me-out">
+                        <label for="check-me-out">Check me out</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-order-modal">Order</button>
+                <button class="btn-close-modal">Close</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const modal = document.getElementById("orderModal");
+        const btnOpen = document.querySelector(".btn-order");
+        const btnCloseX = document.querySelector(".close-btn");
+        const btnClose = document.querySelector(".btn-close-modal");
+
+
+        btnOpen.onclick = function() {
+            modal.style.display = "block";
+        }
+
+
+        btnCloseX.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        btnClose.onclick = function() {
+            modal.style.display = "none";
+        }
+
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 
 </html>
